@@ -1,0 +1,14 @@
+{
+  "name": "meal-app-backend",
+  "version": "1.0.0",
+  "description": "this is the api server for the meal application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tosin Moronfolu",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  }
+}
