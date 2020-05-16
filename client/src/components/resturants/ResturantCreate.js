@@ -1,5 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { createResturant } from '../../actions'
+import { connect } from 'react-redux';
 
 class ResturantCreate extends React.Component {
 	renderError = ({ error, touched }) => {
@@ -52,6 +54,7 @@ class ResturantCreate extends React.Component {
 					component={this.renderInput}
 					label="Enter Address"
 				/>
+				<button className="ui button primary">Submit</button>
 			</form>
 		);
 	}
@@ -79,7 +82,7 @@ const validate = (formValues) => {
 	return errors;
 };
 
-export default connect(null, { rest }(reduxForm({
+export default connect(null, { createResturant })(reduxForm({
 	form: 'resturantCreate',
 	validate,
-}))(ResturantCreate));
+})(ResturantCreate));

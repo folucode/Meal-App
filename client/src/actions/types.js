@@ -1,2 +1,7 @@
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
+export const CREATE_RESTURANT = 'CREATE_RESTURANT';
+export const FETCH_RESTURANTS = 'FETCH_RESTURANT';
+export const FETCH_RESTURANT = 'FETCH_RESTURANT';
+export const DELETE_RESTURANT = 'DELETE_RESTURANT';
+export const EDIT_RESTURANT = 'EDIT_RESTURANT';
