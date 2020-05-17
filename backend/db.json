@@ -1,28 +1,3 @@
 {
-  "resturants": [
-    {
-      "name": "Tosin Moronfolu",
-      "email": "tosinmoronfolu@gmail.com",
-      "address": "Address",
-      "description": "Regulatory and Institutional Challenges",
-      "userId": null,
-      "id": 1
-    },
-    {
-      "name": "Tosin Moronfolu",
-      "email": "tosinmoronfolu@gmail.com",
-      "address": "Address",
-      "description": " Corporate Governance In Nigeria Post Banking Consolidation",
-      "userId": "117377395047354879859",
-      "id": 2
-    },
-    {
-      "name": "tosinmoronfolu@gmail.com",
-      "email": "tosinmoronfolu@gmail.com",
-      "address": "Address",
-      "description": "Regulatory",
-      "userId": "117377395047354879859",
-      "id": 3
-    }
-  ]
+	"resturants": []
 }
