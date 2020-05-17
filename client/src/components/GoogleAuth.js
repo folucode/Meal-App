@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 class GoogleAuth extends React.Component {
 	componentDidMount() {
 		window.gapi.load('client:auth2', () => {
@@ -40,17 +41,27 @@ class GoogleAuth extends React.Component {
 			return null;
 		} else if (this.props.isSignedIn) {
 			return (
-				<button className='ui red google button' onClick={this.onSignOutClick}>
-					<i className='google icon' />
-					Sign Out
-				</button>
+				<a
+					className="waves-effect waves-light red darken-3 btn"
+					onClick={this.onSignOutClick}>
+					SignOut
+					<span>
+						{' '}
+						<FontAwesomeIcon icon={faGoogle} />
+					</span>
+				</a>
 			);
 		} else {
 			return (
-				<button className='ui red google button' onClick={this.onSignInClick}>
-					<i className='google icon' />
+				<a
+					className="waves-effect waves-light red darken-3 btn"
+					onClick={this.onSignInClick}>
 					Sign In with Google
-				</button>
+					<span>
+						{' '}
+						<FontAwesomeIcon icon={faGoogle} />
+					</span>
+				</a>
 			);
 		}
 	}

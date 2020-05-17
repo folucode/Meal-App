@@ -1,61 +1,66 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { createResturant } from '../../actions'
+import { createResturant } from '../../actions';
 import { connect } from 'react-redux';
-
+import 'materialize-css';
+import { TextInput, Button, Icon } from 'react-materialize';
 class ResturantCreate extends React.Component {
 	renderError = ({ error, touched }) => {
 		if (touched && error) {
-			return (
-				<div className="ui error message">
-					<div className="header">{error}</div>
-				</div>
-			);
+			return <div className="red lighten-1">{error}</div>;
 		}
 	};
 
 	renderInput = ({ input, label, meta }) => {
-		const className = `field ${meta.error && meta.touched ? 'error' : '' } `;
+		const className = `input-field col s12`;
+
+		console.log('validate :>> ', validate);
 		return (
 			<div className={className}>
-				<label>{label}</label>
-				<input {...input} />
+				<TextInput {...input} xl={12} s={12} label={label} />
 				{this.renderError(meta)}
 			</div>
 		);
 	};
 
 	onSubmit = (formValues) => {
-		this.props.createResturant(formValues)
-	}
+		this.props.createResturant(formValues);
+	};
 
 	render() {
 		return (
-			<form
-				className="ui form error"
-				onSubmit={this.props.handleSubmit(this.onSubmit)}>
-				<Field
-					name="name"
-					component={this.renderInput}
-					label="Enter Your Name"
-				/>
-				<Field
-					name="email"
-					component={this.renderInput}
-					label="Enter Your Email Address"
-				/>
-				<Field
-					name="description"
-					component={this.renderInput}
-					label="Enter Description"
-				/>
-				<Field
-					name="address"
-					component={this.renderInput}
-					label="Enter Address"
-				/>
-				<button className="ui button primary">Submit</button>
-			</form>
+			<div>
+				<div className="row">
+					<div className="col s6 offset-s3">
+						<h3>Add a new resturant</h3>
+					</div>
+				</div>
+
+				<form
+					className="ui form error"
+					onSubmit={this.props.handleSubmit(this.onSubmit)}>
+					<Field name="name" component={this.renderInput} label="Enter Name" />
+					<Field
+						name="email"
+						component={this.renderInput}
+						label="Enter Email Address"
+					/>
+					<Field
+						name="description"
+						component={this.renderInput}
+						label="Enter Description"
+					/>
+					<Field
+						name="address"
+						component={this.renderInput}
+						label="Enter Address"
+					/>
+					<Button node="button" type="submit" waves="light">
+						Submit
+						<Icon right>send</Icon>
+					</Button>
+				</form>
+			</div>
 		);
 	}
 }
@@ -82,7 +87,9 @@ const validate = (formValues) => {
 	return errors;
 };
 
-export default connect(null, { createResturant })(reduxForm({
-	form: 'resturantCreate',
-	validate,
-})(ResturantCreate));
+export default connect(null, { createResturant })(
+	reduxForm({
+		form: 'resturantCreate',
+		validate,
+	})(ResturantCreate),
+);

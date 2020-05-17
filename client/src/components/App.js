@@ -9,19 +9,19 @@ import ResturantList from './resturants/ResturantList';
 
 const App = () => {
 	return (
-		<div className='ui container'>
+		<div className="container">
 			<BrowserRouter>
-				<div className='ui segments'>
-					<div className='ui segment'>
-						<Header />
-					</div>
+				<div className="col s12">
+					<Header />
 				</div>
-				<div>
-					<Route path='/' exact component={ResturantList} />
-					<Route path='/resturants/new' exact component={ResturantCreate} />
-					<Route path='/resturants/show' component={ResturantShow} />
-					<Route path='/resturants/delete' component={ResturantDelete} />
-					<Route path='/resturants/edit' component={ResturantEdit} />
+				<div className="row">
+					<div className="col s12">
+						<Route path="/" exact component={ResturantList} />
+						<Route path="/resturants/new" exact component={ResturantCreate} />
+						<Route path="/resturants/show" component={ResturantShow} />
+						<Route path="/resturants/delete" component={ResturantDelete} />
+						<Route path="/resturants/edit" component={ResturantEdit} />
+					</div>
 				</div>
 			</BrowserRouter>
 		</div>
