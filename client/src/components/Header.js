@@ -12,10 +12,10 @@ const Header = () => {
 						<Link to="/">Home</Link>
 					</li>
 					<li>
-						<Link to="/restuarants">Restuarants</Link>
+						<Link to="/resturants/new">Create Restuarant</Link>
 					</li>
 					<li>
-						<Link to="/meals">Meals</Link>
+						<Link to="#">Meals</Link>
 					</li>
 					<li>
 						<GoogleAuth />

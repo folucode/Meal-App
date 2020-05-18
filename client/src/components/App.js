@@ -9,7 +9,7 @@ import ResturantList from './resturants/ResturantList';
 
 const App = () => {
 	return (
-		<div className="container">
+		<div className="">
 			<BrowserRouter>
 				<div className="col s12">
 					<Header />
