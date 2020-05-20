@@ -7,12 +7,13 @@ import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
 
 class ResturantList extends React.Component {
 	componentDidMount() {
-		/* once the component mounts call the fetchResturants action creator so as to display the list of resturants */
 		this.props.fetchResturants();
 	}
 
 	renderList() {
+		
 		return this.props.resturants.map((resturant) => {
+			let admin = resturant.userId === this.props.currentUserId;
 			return (
 				<Col xl={3} key={resturant.id}>
 					<Card
@@ -20,6 +21,7 @@ class ResturantList extends React.Component {
 							<a key="1" href="#">
 								visit Resturant
 							</a>,
+							admin ? <Link to={`resturants/edit/${resturant.id}`}>Edit</Link> : '',
 						]}
 						closeIcon={<Icon>close</Icon>}
 						header={
