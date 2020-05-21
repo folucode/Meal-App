@@ -1,37 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchResturants } from '../../actions';
+import { fetchRestaurants } from '../../actions';
 import { Link } from 'react-router-dom';
 import 'materialize-css';
 import { Row, Col, Card, CardTitle, Icon, Preloader } from 'react-materialize';
 
-class ResturantList extends React.Component {
+class RestaurantList extends React.Component {
 	componentDidMount() {
-		this.props.fetchResturants();
+		this.props.fetchRestaurants();
 	}
 
 	renderList() {
-		return this.props.resturants.map((resturant) => {
+		return this.props.restaurants.map((restaurant) => {
 			let admin =
-				resturant.userId === this.props.currentUserId && this.props.isSignedIn;
+				restaurant.userId === this.props.currentUserId && this.props.isSignedIn;
 			return (
-				<Col xl={3} key={resturant.id}>
+				<Col xl={3} key={restaurant.id}>
 					<Card
-						key={resturant.id}
+						key={restaurant.id}
 						actions={[
-							<Link to={'/'}>visit Resturant</Link>,
+							<Link to={'/'}>visit Restaurant</Link>,
 							admin ? (
-								<Link to={`resturants/edit/${resturant.id}`}>Edit</Link>
+								<Link to={`restaurants/edit/${restaurant.id}`}>Edit</Link>
 							) : null,
 						]}
 						closeIcon={<Icon>close</Icon>}
 						header={
 							<CardTitle image="https://materializecss.com/images/sample-1.jpg">
-								{resturant.name}
+								{restaurant.name}
 							</CardTitle>
 						}
 						revealIcon={<Icon>more_vert</Icon>}>
-						{resturant.description}
+						{restaurant.description}
 					</Card>
 				</Col>
 			);
@@ -39,7 +39,7 @@ class ResturantList extends React.Component {
 	}
 
 	render() {
-		return this.props.resturants.length < 1 ? (
+		return this.props.restaurants.length < 1 ? (
 			<Col s={4} offset="s5">
 				<Preloader active color="blue" flashing={false} size="small" />
 			</Col>
@@ -51,10 +51,10 @@ class ResturantList extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		resturants: Object.values(state.resturants),
+		restaurants: Object.values(state.restaurants),
 		currentUserId: state.auth.userId,
 		isSignedIn: state.auth.isSignedIn,
 	};
 };
 
-export default connect(mapStateToProps, { fetchResturants })(ResturantList);
+export default connect(mapStateToProps, { fetchRestaurants })(RestaurantList);

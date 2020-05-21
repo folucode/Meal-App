@@ -2,13 +2,13 @@ import history from '../history';
 import {
 	SIGN_IN,
 	SIGN_OUT,
-	FETCH_RESTURANT,
-	FETCH_RESTURANTS,
-	CREATE_RESTURANT,
-	EDIT_RESTURANT,
-	DELETE_RESTURANT,
+	FETCH_RESTAURANT,
+	FETCH_RESTAURANTS,
+	CREATE_RESTAURANT,
+	EDIT_RESTAURANT,
+	DELETE_RESTAURANT,
 } from './types';
-import resturants from '../apis/resturants';
+import restaurants from '../apis/restaurants';
 
 export const signIn = (userId) => {
 	return {
@@ -23,39 +23,39 @@ export const signOut = () => {
 	};
 };
 
-export const createResturant = (formValues) => async (dispatch, getState) => {
+export const createRestaurant = (formValues) => async (dispatch, getState) => {
 	const { userId } = getState().auth;
 
-	const response = await resturants.post('/resturants', {
+	const response = await restaurants.post('/restaurants', {
 		...formValues,
 		userId,
 	});
 
-	dispatch({ type: CREATE_RESTURANT, payload: response.data });
+	dispatch({ type: CREATE_RESTAURANT, payload: response.data });
 
 	history.push('/');
 };
 
-export const fetchResturants = () => async (dispatch) => {
-	const response = await resturants.get('/resturants');
+export const fetchRestaurants = () => async (dispatch) => {
+	const response = await restaurants.get('/restaurants');
 
-	dispatch({ type: FETCH_RESTURANTS, payload: response.data });
+	dispatch({ type: FETCH_RESTAURANTS, payload: response.data });
 };
 
-export const fetchResturant = (id) => async (dispatch) => {
-	const response = await resturants.get(`/resturants/${id}`);
+export const fetchRestaurant = (id) => async (dispatch) => {
+	const response = await restaurants.get(`/restaurants/${id}`);
 
-	dispatch({ type: FETCH_RESTURANT, payload: response.data });
+	dispatch({ type: FETCH_RESTAURANT, payload: response.data });
 };
 
-export const editResturant = (id, formValues) => async (dispatch) => {
-	const response = await resturants.patch(`/resturants/${id}`, formValues);
+export const editRestaurant = (id, formValues) => async (dispatch) => {
+	const response = await restaurants.patch(`/restaurants/${id}`, formValues);
 
-	dispatch({ type: EDIT_RESTURANT, payload: response });
+	dispatch({ type: EDIT_RESTAURANT, payload: response });
 };
 
-export const deleteResturant = (id) => async (dispatch) => {
-	await resturants.delete(`/streams/${id}`);
+export const deleteRestaurant = (id) => async (dispatch) => {
+	await restaurants.delete(`/streams/${id}`);
 
-	dispatch({ type: DELETE_RESTURANT, payload: id });
+	dispatch({ type: DELETE_RESTAURANT, payload: id });
 };

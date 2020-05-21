@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { TextInput, Button, Icon } from 'react-materialize';
 import 'materialize-css';
 
-class ResturantForm extends React.Component {
+class RestaurantForm extends React.Component {
 	renderError = ({ error, touched }) => {
 		if (touched && error) {
 			return <div className="red lighten-1">{error}</div>;
@@ -31,7 +31,7 @@ class ResturantForm extends React.Component {
 			<div>
 				<div className="row">
 					<div className="col s6 offset-s3">
-						<h3>Add a new resturant</h3>
+						<h3>Add a new restaurant</h3>
 					</div>
 				</div>
 
@@ -88,4 +88,4 @@ const validate = (formValues) => {
 export default reduxForm({
 	form: 'streamForm',
 	validate,
-})(ResturantForm);
+})(RestaurantForm);

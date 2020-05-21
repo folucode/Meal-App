@@ -1,11 +1,11 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import Header from './Header';
-import ResturantDelete from './resturants/ResturantDelete';
-import ResturantCreate from './resturants/ResturantCreate';
-import ResturantEdit from './resturants/ResturantEdit';
-import ResturantShow from './resturants/ResturantShow';
-import ResturantList from './resturants/ResturantList';
+import ResturantDelete from './resturants/RestaurantDelete';
+import ResturantCreate from './resturants/RestaurantCreate';
+import ResturantEdit from './resturants/RestaurantEdit';
+import ResturantShow from './resturants/RestaurantShow';
+import ResturantList from './resturants/RestaurantList';
 import history from '../history'
 
 const App = () => {

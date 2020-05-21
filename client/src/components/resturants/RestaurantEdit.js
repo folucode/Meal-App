@@ -1,21 +1,21 @@
 import React from 'react';
-import { fetchResturant, editResturant } from '../../actions';
+import { fetchRestaurant, editRestaurant } from '../../actions';
 import { connect } from 'react-redux';
-import ResturantForm from './ResturantForm';
+import RestaurantForm from './RestaurantForm';
 import _ from 'lodash';
 import { Col, Preloader } from 'react-materialize';
 
-class ResturantEdit extends React.Component {
+class RestaurantEdit extends React.Component {
 	componentDidMount() {
-		this.props.fetchResturant(this.props.match.params.id);
+		this.props.fetchRestaurant(this.props.match.params.id);
 	}
 
 	onSubmit = (formValues) => {
-		this.props.editResturant(this.props.match.params.id, formValues);
+		this.props.editRestaurant(this.props.match.params.id, formValues);
 	};
 
 	render() {
-		if (!this.props.resturant) {
+		if (!this.props.restaurant) {
 			return (
 				<Col s={4} offset="s5">
 					<Preloader active color="blue" flashing={false} size="small" />
@@ -25,7 +25,7 @@ class ResturantEdit extends React.Component {
 		return (
 			<div>
 				<h3>Edit a Stream</h3>
-				<ResturantForm
+				<RestaurantForm
 					initialValues={_.pick(
 						this.props.resturant,
 						'name',
@@ -41,9 +41,9 @@ class ResturantEdit extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	return { resturant: state.resturants[ownProps.match.params.id] };
+	return { restaurant: state.restaurants[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { fetchResturant, editResturant })(
-	ResturantEdit,
+export default connect(mapStateToProps, { fetchRestaurant, editRestaurant })(
+	RestaurantEdit,
 );
