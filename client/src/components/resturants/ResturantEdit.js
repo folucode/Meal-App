@@ -3,6 +3,7 @@ import { fetchResturant, editResturant } from '../../actions';
 import { connect } from 'react-redux';
 import ResturantForm from './ResturantForm';
 import _ from 'lodash';
+import { Col, Preloader } from 'react-materialize';
 
 class ResturantEdit extends React.Component {
 	componentDidMount() {
@@ -15,13 +16,23 @@ class ResturantEdit extends React.Component {
 
 	render() {
 		if (!this.props.resturant) {
-			return <div>Loading...</div>;
+			return (
+				<Col s={4} offset="s5">
+					<Preloader active color="blue" flashing={false} size="small" />
+				</Col>
+			);
 		}
 		return (
 			<div>
 				<h3>Edit a Stream</h3>
 				<ResturantForm
-					initialValues={_.pick(this.props.resturant, 'name', 'description', 'email', 'address')}
+					initialValues={_.pick(
+						this.props.resturant,
+						'name',
+						'description',
+						'email',
+						'address',
+					)}
 					onSubmit={this.onSubmit}
 				/>
 			</div>

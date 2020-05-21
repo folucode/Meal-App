@@ -18,4 +18,10 @@ class ResturantCreate extends React.Component {
 	}
 }
 
-export default connect(null, { createResturant })(ResturantCreate);
+const mapStateToProps = (state) => {
+	return {
+		restuarants: state.restuarants
+	}
+}
+
+export default connect(mapStateToProps, { createResturant })(ResturantCreate);

@@ -1,3 +1,4 @@
+import history from '../history';
 import {
 	SIGN_IN,
 	SIGN_OUT,
@@ -23,7 +24,6 @@ export const signOut = () => {
 };
 
 export const createResturant = (formValues) => async (dispatch, getState) => {
-
 	const { userId } = getState().auth;
 
 	const response = await resturants.post('/resturants', {
@@ -32,31 +32,29 @@ export const createResturant = (formValues) => async (dispatch, getState) => {
 	});
 
 	dispatch({ type: CREATE_RESTURANT, payload: response.data });
+
+	history.push('/');
 };
 
 export const fetchResturants = () => async (dispatch) => {
-
 	const response = await resturants.get('/resturants');
 
 	dispatch({ type: FETCH_RESTURANTS, payload: response.data });
 };
 
 export const fetchResturant = (id) => async (dispatch) => {
-
 	const response = await resturants.get(`/resturants/${id}`);
 
 	dispatch({ type: FETCH_RESTURANT, payload: response.data });
 };
 
 export const editResturant = (id, formValues) => async (dispatch) => {
-
 	const response = await resturants.patch(`/resturants/${id}`, formValues);
 
 	dispatch({ type: EDIT_RESTURANT, payload: response });
 };
 
 export const deleteResturant = (id) => async (dispatch) => {
-
 	await resturants.delete(`/streams/${id}`);
 
 	dispatch({ type: DELETE_RESTURANT, payload: id });

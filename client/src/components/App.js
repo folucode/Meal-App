@@ -1,16 +1,17 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import Header from './Header';
 import ResturantDelete from './resturants/ResturantDelete';
 import ResturantCreate from './resturants/ResturantCreate';
 import ResturantEdit from './resturants/ResturantEdit';
 import ResturantShow from './resturants/ResturantShow';
 import ResturantList from './resturants/ResturantList';
+import history from '../history'
 
 const App = () => {
 	return (
-		<div className="">
-			<BrowserRouter>
+		<div>
+			<Router history={history}>
 				<div className="col s12">
 					<Header />
 				</div>
@@ -23,7 +24,7 @@ const App = () => {
 						<Route path="/resturants/edit/:id" component={ResturantEdit} />
 					</div>
 				</div>
-			</BrowserRouter>
+			</Router>
 		</div>
 	);
 };
