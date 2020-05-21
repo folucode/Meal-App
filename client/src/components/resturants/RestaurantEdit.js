@@ -27,7 +27,7 @@ class RestaurantEdit extends React.Component {
 				<h3>Edit a Stream</h3>
 				<RestaurantForm
 					initialValues={_.pick(
-						this.props.resturant,
+						this.props.restaurant,
 						'name',
 						'description',
 						'email',

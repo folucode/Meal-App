@@ -1,18 +1,43 @@
 import React from 'react';
-import { createRestaurant } from '../../actions';
+import { createRestaurant, fetchRestaurants } from '../../actions';
 import { connect } from 'react-redux';
 import RestaurantForm from './RestaurantForm';
+import { Col, Preloader } from 'react-materialize';
 
 class RestaurantCreate extends React.Component {
+	componentDidMount() {
+		this.props.fetchRestaurants();
+	}
+
 	onSubmit = (formValues) => {
-		this.props.createResturant(formValues);
+		this.props.createRestaurant(formValues);
 	};
 
+	checkUser() {
+		let result = this.props.restaurants.find((user) => {
+			return user.userId === this.props.currentUser;
+		});
+
+		if (result) {
+			return <div>You can't create another resturant</div>;
+		} else {
+			return <RestaurantForm onSubmit={this.onSubmit} />;
+		}
+	}
+
 	render() {
+		let { restaurants, currentUser } = this.props;
 		return (
 			<div>
 				<h3>Create a Restaurant</h3>
-				<RestaurantForm onSubmit={this.onSubmit} />
+
+				{restaurants && currentUser ? (
+					this.checkUser()
+				) : (
+					<Col s={4} offset="s5">
+						<Preloader active color="blue" flashing={true} size="small" />
+					</Col>
+				)}
 			</div>
 		);
 	}
@@ -20,8 +45,11 @@ class RestaurantCreate extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		restaurants: state.restaurants
-	}
-}
+		restaurants: Object.values(state.restaurants),
+		currentUser: state.auth.userId,
+	};
+};
 
-export default connect(mapStateToProps, { createRestaurant })(RestaurantCreate);
+export default connect(mapStateToProps, { createRestaurant, fetchRestaurants })(
+	RestaurantCreate,
+);

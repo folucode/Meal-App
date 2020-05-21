@@ -1,11 +1,11 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import Header from './Header';
-import ResturantDelete from './resturants/RestaurantDelete';
-import ResturantCreate from './resturants/RestaurantCreate';
-import ResturantEdit from './resturants/RestaurantEdit';
-import ResturantShow from './resturants/RestaurantShow';
-import ResturantList from './resturants/RestaurantList';
+import RestaurantDelete from './resturants/RestaurantDelete';
+import RestaurantCreate from './resturants/RestaurantCreate';
+import RestaurantEdit from './resturants/RestaurantEdit';
+import RestaurantShow from './resturants/RestaurantShow';
+import RestaurantList from './resturants/RestaurantList';
 import history from '../history'
 
 const App = () => {
@@ -17,11 +17,11 @@ const App = () => {
 				</div>
 				<div className="row">
 					<div className="col s12">
-						<Route path="/" exact component={ResturantList} />
-						<Route path="/resturants/new" exact component={ResturantCreate} />
-						<Route path="/resturants/show" component={ResturantShow} />
-						<Route path="/resturants/delete" component={ResturantDelete} />
-						<Route path="/resturants/edit/:id" component={ResturantEdit} />
+						<Route path="/" exact component={RestaurantList} />
+						<Route path="/restaurants/new" exact component={RestaurantCreate} />
+						<Route path="/restaurants/show" component={RestaurantShow} />
+						<Route path="/restaurants/delete" component={RestaurantDelete} />
+						<Route path="/restaurants/edit/:id" component={RestaurantEdit} />
 					</div>
 				</div>
 			</Router>

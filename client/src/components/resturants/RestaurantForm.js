@@ -12,8 +12,6 @@ class RestaurantForm extends React.Component {
 
 	renderInput = ({ input, label, meta }) => {
 		const className = `input-field col s12`;
-
-		console.log('validate :>> ', validate);
 		return (
 			<div className={className}>
 				<TextInput {...input} xl={12} s={12} label={label} />
@@ -35,8 +33,7 @@ class RestaurantForm extends React.Component {
 					</div>
 				</div>
 
-				<form
-					onSubmit={this.props.handleSubmit(this.onSubmit)}>
+				<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
 					<Field name="name" component={this.renderInput} label="Enter Name" />
 					<Field
 						name="email"

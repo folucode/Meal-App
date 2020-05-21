@@ -41,7 +41,7 @@ class RestaurantList extends React.Component {
 	render() {
 		return this.props.restaurants.length < 1 ? (
 			<Col s={4} offset="s5">
-				<Preloader active color="blue" flashing={false} size="small" />
+				<Preloader active color="blue" flashing={true} size="small" />
 			</Col>
 		) : (
 			<Row>{this.renderList()}</Row>
