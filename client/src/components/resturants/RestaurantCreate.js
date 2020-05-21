@@ -13,7 +13,7 @@ class RestaurantCreate extends React.Component {
 		this.props.createRestaurant(formValues);
 	};
 
-	checkUser() {
+	checkUser = () => {
 		let result = this.props.restaurants.find((user) => {
 			return user.userId === this.props.currentUser;
 		});
@@ -23,10 +23,15 @@ class RestaurantCreate extends React.Component {
 		} else {
 			return <RestaurantForm onSubmit={this.onSubmit} />;
 		}
-	}
+	};
 
 	render() {
 		let { restaurants, currentUser } = this.props;
+
+		if (!currentUser) {
+			return <h3>Login in to create a restaurant</h3>;
+		}
+
 		return (
 			<div>
 				<h3>Create a Restaurant</h3>
