@@ -6,12 +6,12 @@ import {
 	EDIT_RESTAURANT,
 	DELETE_RESTAURANT,
 } from './types';
-import restaurants from '../../apis/restaurants';
+import db from '../../apis/db';
 
 export const createRestaurant = (formValues) => async (dispatch, getState) => {
 	const { userId } = getState().auth;
 
-	const response = await restaurants.post('/restaurants', {
+	const response = await db.post('/restaurants', {
 		...formValues,
 		userId,
 	});
@@ -22,25 +22,25 @@ export const createRestaurant = (formValues) => async (dispatch, getState) => {
 };
 
 export const fetchRestaurants = () => async (dispatch) => {
-	const response = await restaurants.get('/restaurants');
+	const response = await db.get('/restaurants');
 
 	dispatch({ type: FETCH_RESTAURANTS, payload: response.data });
 };
 
 export const fetchRestaurant = (id) => async (dispatch) => {
-	const response = await restaurants.get(`/restaurants/${id}`);
+	const response = await db.get(`/restaurants/${id}`);
 
 	dispatch({ type: FETCH_RESTAURANT, payload: response.data });
 };
 
 export const editRestaurant = (id, formValues) => async (dispatch) => {
-	const response = await restaurants.patch(`/restaurants/${id}`, formValues);
+	const response = await db.patch(`/restaurants/${id}`, formValues);
 
 	dispatch({ type: EDIT_RESTAURANT, payload: response });
 };
 
 export const deleteRestaurant = (id) => async (dispatch) => {
-	await restaurants.delete(`/streams/${id}`);
+	await db.delete(`/streams/${id}`);
 
 	dispatch({ type: DELETE_RESTAURANT, payload: id });
 };
