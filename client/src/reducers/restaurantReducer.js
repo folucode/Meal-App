@@ -5,7 +5,7 @@ import {
 	CREATE_RESTAURANT,
 	EDIT_RESTAURANT,
 	DELETE_RESTAURANT,
-} from '../actions/types';
+} from '../actions/restaurants/types';
 
 export default (state = {}, action) => {
 	switch (action.type) {

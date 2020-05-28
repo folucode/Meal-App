@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchRestaurants } from '../../actions';
+import { fetchRestaurants } from '../../actions/restaurants';
 import { Link } from 'react-router-dom';
-import 'materialize-css';
 class RestaurantList extends React.Component {
 	componentDidMount() {
 		this.props.fetchRestaurants();
@@ -27,12 +26,12 @@ class RestaurantList extends React.Component {
 							</p>
 						</div>
 
-						<div class="px-6 py-4">
-							<span class="inline-block bg-white rounded p-3 text-base font-bold text-gray-700 mr-2">
+						<div className="px-6 py-4">
+							<span className="inline-block bg-white rounded p-3 text-base font-bold text-gray-700 mr-2">
 								<Link to={'/'}>visit Restaurant</Link>
 							</span>
 							{admin ? (
-								<span class="inline-block bg-white rounded p-3 text-base font-bold text-gray-700 mr-2">
+								<span className="inline-block bg-white rounded p-3 text-base font-bold text-gray-700 mr-2">
 									<Link to={`restaurants/edit/${restaurant.id}`}>Edit</Link>
 								</span>
 							) : null}

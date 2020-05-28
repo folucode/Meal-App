@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchRestaurant, editRestaurant } from '../../actions';
+import { fetchRestaurant, editRestaurant } from '../../actions/restaurants';
 import { connect } from 'react-redux';
 import RestaurantForm from './RestaurantForm';
 import _ from 'lodash';

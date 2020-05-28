@@ -1,27 +1,12 @@
-import history from '../history';
+import history from '../../history';
 import {
-	SIGN_IN,
-	SIGN_OUT,
 	FETCH_RESTAURANT,
 	FETCH_RESTAURANTS,
 	CREATE_RESTAURANT,
 	EDIT_RESTAURANT,
 	DELETE_RESTAURANT,
 } from './types';
-import restaurants from '../apis/restaurants';
-
-export const signIn = (userId) => {
-	return {
-		type: SIGN_IN,
-		payload: userId,
-	};
-};
-
-export const signOut = () => {
-	return {
-		type: SIGN_OUT,
-	};
-};
+import restaurants from '../../apis/restaurants';
 
 export const createRestaurant = (formValues) => async (dispatch, getState) => {
 	const { userId } = getState().auth;

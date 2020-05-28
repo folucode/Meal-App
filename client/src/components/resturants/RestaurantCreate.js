@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRestaurant, fetchRestaurants } from '../../actions';
+import { createRestaurant, fetchRestaurants } from '../../actions/restaurants';
 import { connect } from 'react-redux';
 import RestaurantForm from './RestaurantForm';
 import { Col, Preloader } from 'react-materialize';
