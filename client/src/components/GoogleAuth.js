@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import GoogleIcon from '../svgs/google.svg';
 class GoogleAuth extends React.Component {
 	componentDidMount() {
 		window.gapi.load('client:auth2', () => {
@@ -41,27 +42,33 @@ class GoogleAuth extends React.Component {
 			return null;
 		} else if (this.props.isSignedIn) {
 			return (
-				<a
-					className="waves-effect waves-light red darken-3 btn"
-					onClick={this.onSignOutClick}>
+				<button className="cursor-pointer bg-red-400 p-3 rounded mx-1" onClick={this.onSignOutClick}>
 					SignOut
 					<span>
 						{' '}
-						<FontAwesomeIcon icon={faGoogle} />
+						<img
+							src={GoogleIcon}
+							alt="Google Icon SVG"
+							className="fill-current w-5 h-5 inline"
+						/>
 					</span>
-				</a>
+				</button>
 			);
 		} else {
 			return (
-				<a
-					className="waves-effect waves-light red darken-3 btn"
+				<button
+					className="cursor-pointer bg-red-400 p-3 rounded mx-1"
 					onClick={this.onSignInClick}>
 					Sign In with Google
 					<span>
 						{' '}
-						<FontAwesomeIcon icon={faGoogle} />
+						<img
+							src={GoogleIcon}
+							alt="Google Icon SVG"
+							className="fill-current w-5 h-5 inline"
+						/>
 					</span>
-				</a>
+				</button>
 			);
 		}
 	}

@@ -1,12 +1,28 @@
 {
   "restaurants": [
     {
-      "name": "tosinmoronfolu@gmail.com",
+      "name": "Tosin Moronfolu",
       "email": "tosinmoronfolu@gmail.com",
       "address": "Address",
       "description": "Regulatory and Institutional Challenges",
       "userId": "117377395047354879859",
       "id": 1
+    },
+    {
+      "name": "Tosin",
+      "email": "tosinmoronfolu@gmail.com",
+      "address": "Address",
+      "description": "Regulatory and Institutional Challenges",
+      "userId": "",
+      "id": 2
+    },
+    {
+      "name": "Tosin Moronfolu",
+      "email": "tosinmoronfolu@gmail.com",
+      "address": "Address",
+      "description": "Regulatory and Institutional Challenges",
+      "userId": "",
+      "id": 3
     }
   ]
 }

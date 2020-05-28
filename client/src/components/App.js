@@ -10,9 +10,9 @@ import history from '../history'
 
 const App = () => {
 	return (
-		<div>
+		<div className="">
 			<Router history={history}>
-				<div className="col s12">
+				<div className="">
 					<Header />
 				</div>
 				<div className="row">

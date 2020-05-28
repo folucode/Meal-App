@@ -4,24 +4,12 @@ import GoogleAuth from './GoogleAuth';
 
 const Header = () => {
 	return (
-		<nav>
-			<div className="nav-wrapper">
-				<Link to="/">Book A Meal</Link>
-				<ul id="nav-mobile" className="right">
-					<li>
-						<Link to="/">Home</Link>
-					</li>
-					<li>
-						<Link to="/restaurants/new">Create Restauarant</Link>
-					</li>
-					<li>
-						<Link to="#">Meals</Link>
-					</li>
-					<li>
-						<GoogleAuth />
-					</li>
-				</ul>
-			</div>
+		<nav className="bg-green-400 rounded p-4 clearfix">
+			<div className="inline bg-gray-300 float-left p-3 rounded"><Link to="/">Book A Meal</Link></div>
+			<div className="inline-block float-right"><GoogleAuth /></div>
+			<div className="inline float-right bg-gray-300 p-3 rounded mx-1"><Link to="/restaurants/new">Create Restauarant</Link></div>
+			<div className="inline float-right bg-gray-300 p-3 rounded mx-1"><Link to="#">Meals</Link></div>
+			<div className="inline float-right bg-gray-300 p-3 rounded mx-1"><Link to="/">Home</Link></div>
 		</nav>
 	);
 };

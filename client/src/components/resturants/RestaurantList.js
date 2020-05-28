@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { fetchRestaurants } from '../../actions';
 import { Link } from 'react-router-dom';
 import 'materialize-css';
-import { Row, Col, Card, CardTitle, Icon, Preloader } from 'react-materialize';
-
 class RestaurantList extends React.Component {
 	componentDidMount() {
 		this.props.fetchRestaurants();
@@ -15,36 +13,44 @@ class RestaurantList extends React.Component {
 			let admin =
 				restaurant.userId === this.props.currentUserId && this.props.isSignedIn;
 			return (
-				<Col xl={3} key={restaurant.id}>
-					<Card
-						key={restaurant.id}
-						actions={[
-							<Link to={'/'}>visit Restaurant</Link>,
-							admin ? (
-								<Link to={`restaurants/edit/${restaurant.id}`}>Edit</Link>
-							) : null,
-						]}
-						closeIcon={<Icon>close</Icon>}
-						header={
-							<CardTitle image="https://materializecss.com/images/sample-1.jpg">
-								{restaurant.name}
-							</CardTitle>
-						}
-						revealIcon={<Icon>more_vert</Icon>}>
-						{restaurant.description}
-					</Card>
-				</Col>
+				<div className="inline-block float-left" key={restaurant.id}>
+					<div className="max-w-sm overflow-hidden shadow-lg bg-gray-200 m-3 rounded">
+						<img
+							src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=353&q=80"
+							alt=""
+							className="w-full h-64"
+						/>
+						<div className="px-6 py-4">
+							<div className="font-bold text-xl mb-2">{restaurant.name}</div>
+							<p className="text-gray-700 text-base">
+								{restaurant.description}
+							</p>
+						</div>
+
+						<div class="px-6 py-4">
+							<span class="inline-block bg-white rounded p-3 text-base font-bold text-gray-700 mr-2">
+								<Link to={'/'}>visit Restaurant</Link>
+							</span>
+							{admin ? (
+								<span class="inline-block bg-white rounded p-3 text-base font-bold text-gray-700 mr-2">
+									<Link to={`restaurants/edit/${restaurant.id}`}>Edit</Link>
+								</span>
+							) : null}
+						</div>
+					</div>
+				</div>
 			);
 		});
 	}
 
 	render() {
 		return this.props.restaurants.length < 1 ? (
-			<Col s={4} offset="s5">
-				<Preloader active color="blue" flashing={true} size="small" />
-			</Col>
+			<div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32 container mx-auto my-32"></div>
 		) : (
-			<Row>{this.renderList()}</Row>
+			<div className="container mx-auto">
+				<h1>Featured Restuarants</h1>
+				{this.renderList()}
+			</div>
 		);
 	}
 }
