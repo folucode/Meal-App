@@ -1,4 +1,41 @@
 {
-  "restaurants": [],
-  "meals" : []
+  "restaurants": [
+    {
+      "name": "Tosin's Place",
+      "email": "tosinmoronfolu@gmail.com",
+      "address": "Address",
+      "description": "Regulatory and Institutional Challenges",
+      "userId": "117377395047354879859",
+      "id": 1
+    },
+    {
+      "name": "Tosin Moronfolu",
+      "email": "tosinmoronfolu@gmail.com",
+      "address": "Address",
+      "description": "Regulatory and Institutional Challenges",
+      "id": 2
+    },
+    {
+      "name": "Tosin Moronfolu",
+      "email": "tosinmoronfolu@gmail.com",
+      "address": "Address",
+      "description": "Regulatory and Institutional Challenges",
+      "id": 3
+    },
+    {
+      "name": "Tosin Moronfolu",
+      "email": "tosinmoronfolu@gmail.com",
+      "address": "Address",
+      "description": "Regulatory and Institutional Challenges",
+      "id": 4
+    },
+    {
+      "name": "Becky's Place",
+      "email": "tosinmoronfolu@gmail.com",
+      "address": "Address",
+      "description": "Institutional Challenges of Corporate Governance In Nigeria Post Banking Consolidation",
+      "id": 5
+    }
+  ],
+  "meals": []
 }

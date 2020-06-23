@@ -42,7 +42,7 @@ class GoogleAuth extends React.Component {
 			return null;
 		} else if (this.props.isSignedIn) {
 			return (
-				<button className="cursor-pointer bg-red-400 p-3 rounded mx-1" onClick={this.onSignOutClick}>
+				<button className="cursor-pointer bg-red-400 p-2 rounded mx-1" onClick={this.onSignOutClick}>
 					SignOut
 					<span>
 						{' '}
@@ -57,7 +57,7 @@ class GoogleAuth extends React.Component {
 		} else {
 			return (
 				<button
-					className="cursor-pointer bg-red-400 p-3 rounded mx-1"
+					className="cursor-pointer bg-red-400 p-2 rounded mx-1"
 					onClick={this.onSignInClick}>
 					Sign In with Google
 					<span>

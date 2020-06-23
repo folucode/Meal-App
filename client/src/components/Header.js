@@ -1,15 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleAuth from './GoogleAuth';
+import classNames from 'classnames';
 
 const Header = () => {
+	const [isCollapsed, toggleCollapse] = useState(true);
+
 	return (
-		<nav className="bg-green-400 p-4 clearfix">
-			<div className="inline bg-gray-300 float-left p-3 rounded"><Link to="/">Book A Meal</Link></div>
-			<div className="inline-block float-right"><GoogleAuth /></div>
-			<div className="inline float-right bg-gray-300 p-3 rounded mx-1"><Link to="/restaurants/new">Create Restauarant</Link></div>
-			<div className="inline float-right bg-gray-300 p-3 rounded mx-1"><Link to="#">Meals</Link></div>
-			<div className="inline float-right bg-gray-300 p-3 rounded mx-1"><Link to="/">Home</Link></div>
+		<nav className="navbar rounded-b navbar-expand-lg navbar-dark bg-dark">
+			<div className="navbar-brand">
+				<Link to="/">Book A Meal</Link>
+			</div>
+			<button className="navbar-toggler">
+				<span
+					className="navbar-toggler-icon"
+					onClick={() => {
+						toggleCollapse(!isCollapsed);
+					}}></span>
+			</button>
+			<div
+				className={classNames({ collapse: isCollapsed }, 'navbar-collapse')}
+				id="navbarNavAltMarkup">
+				<div className="navbar-nav">
+					<div className="nav-item">
+						<Link to="/restaurants/new" className="nav-link">
+							Create Restauarant
+						</Link>
+					</div>
+					<div className="nav-item">
+						<Link to="#" className="nav-link">
+							Meals
+						</Link>
+					</div>
+					<div className="nav-item">
+						<Link to="/" className="nav-link">
+							Home
+						</Link>
+					</div>
+					<div className="float-lg-right">
+						<GoogleAuth />
+					</div>
+				</div>
+			</div>
 		</nav>
 	);
 };

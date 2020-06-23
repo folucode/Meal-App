@@ -19,7 +19,15 @@ class RestaurantCreate extends React.Component {
 		});
 
 		if (result) {
-			return <div>You can't create another resturant</div>;
+			return (
+				<div className="row">
+					<div className="col-sm-6 offset-sm-3 my-6">
+						<div className="text-center alert alert-danger p-12">
+							You can't create another restaurant!
+						</div>
+					</div>
+				</div>
+			);
 		} else {
 			return <RestaurantForm onSubmit={this.onSubmit} />;
 		}
@@ -34,7 +42,13 @@ class RestaurantCreate extends React.Component {
 
 		return (
 			<div>
-				<h3>Create a Restaurant</h3>
+				<div className="row">
+					<div className="col-sm-6 offset-sm-3 my-6">
+						<h3 className="text-center alert alert-primary">
+							Create a Restaurant
+						</h3>
+					</div>
+				</div>
 
 				{restaurants && currentUser ? (
 					this.checkUser()

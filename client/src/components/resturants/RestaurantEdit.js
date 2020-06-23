@@ -24,7 +24,11 @@ class RestaurantEdit extends React.Component {
 		}
 		return (
 			<div>
-				<h3>Edit a Stream</h3>
+				<div className="row">
+					<div className="col-sm-6 offset-sm-3 my-6">
+						<h3 className="text-center alert alert-primary">Edit Restaurant</h3>
+					</div>
+				</div>
 				<RestaurantForm
 					initialValues={_.pick(
 						this.props.restaurant,

@@ -6,15 +6,15 @@ import 'materialize-css';
 class RestaurantForm extends React.Component {
 	renderError = ({ error, touched }) => {
 		if (touched && error) {
-			return <div className="red lighten-1">{error}</div>;
+			return <small className="form-text text-danger">{error}</small>;
 		}
 	};
 
 	renderInput = ({ input, label, meta }) => {
-		const className = `input-field col s12`;
 		return (
-			<div className={className}>
-				<TextInput {...input} xl={12} s={12} label={label} />
+			<div className="form-group">
+				<label htmlFor={label}>{label}</label>
+				<input {...input} className="form-control" />
 				{this.renderError(meta)}
 			</div>
 		);
@@ -26,35 +26,34 @@ class RestaurantForm extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<div className="row">
-					<div className="col s6 offset-s3">
-						<h3>Add a new restaurant</h3>
+					<div className="col-sm-6 offset-sm-3 my-1">
+						<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+							<Field
+								name="name"
+								component={this.renderInput}
+								label="Enter Resturant Name"
+							/>
+							<Field
+								name="email"
+								component={this.renderInput}
+								label="Enter Email Address"
+							/>
+							<Field
+								name="description"
+								component={this.renderInput}
+								label="Enter Description"
+							/>
+							<Field
+								name="address"
+								component={this.renderInput}
+								label="Enter Address"
+							/>
+							<button type="submit" className="btn btn-dark">Submit</button>
+						</form>
 					</div>
 				</div>
-
-				<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-					<Field name="name" component={this.renderInput} label="Enter Name" />
-					<Field
-						name="email"
-						component={this.renderInput}
-						label="Enter Email Address"
-					/>
-					<Field
-						name="description"
-						component={this.renderInput}
-						label="Enter Description"
-					/>
-					<Field
-						name="address"
-						component={this.renderInput}
-						label="Enter Address"
-					/>
-					<Button node="button" type="submit" waves="light">
-						Submit
-						<Icon right>send</Icon>
-					</Button>
-				</form>
 			</div>
 		);
 	}

@@ -10,7 +10,7 @@ import history from '../history'
 
 const App = () => {
 	return (
-		<div className="">
+		<div className="container-fluid">
 			<Router history={history}>
 				<div className="">
 					<Header />
