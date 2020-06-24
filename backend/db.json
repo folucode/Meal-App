@@ -48,7 +48,7 @@
       "email": "tosinmoronfolu@gmail.com",
       "address": "Address",
       "description": "Regulatory and Institutional Challenges",
-      "userId": "",
+      "userId": "117377395047354879859",
       "id": 7
     }
   ],
@@ -66,6 +66,27 @@
       "userId": "117377395047354879859",
       "restaurantId": "1",
       "id": 3
+    },
+    {
+      "meal_name": "Yam and Egg",
+      "meal_price": "1000",
+      "userId": "117377395047354879859",
+      "restaurantId": "5",
+      "id": 4
+    },
+    {
+      "meal_name": "Pasta and Chicken",
+      "meal_price": "350",
+      "userId": "117377395047354879859",
+      "restaurantId": "5",
+      "id": 5
+    },
+    {
+      "meal_name": "Pasta and Chicken",
+      "meal_price": "1000",
+      "userId": "117377395047354879859",
+      "restaurantId": "4",
+      "id": 6
     }
   ]
 }

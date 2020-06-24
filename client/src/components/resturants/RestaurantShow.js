@@ -38,20 +38,37 @@ class RestaurantShow extends React.Component {
 	}
 
 	renderRestaurantMeals() {
-		if (this.props.meals.length > 0) {
-			const { meals } = this.props;
+		const { meals, match } = this.props;
 
-			return meals.map((meal, i) => {
-				return (
-					<tbody>
+		let restaurantMeal = meals.filter(
+			(meal) => meal.restaurantId === match.params.id,
+		);
+
+		let i = 0;
+
+		if (restaurantMeal.length > 0) {
+			return (
+				<table className="table table-striped overflow-auto">
+					<thead>
 						<tr>
-							<th scope="row">{i + 1}</th>
-							<td>{meal.meal_name}</td>
-							<td>{meal.meal_price}</td>
+							<th scope="col">#</th>
+							<th scope="col">Meal Name</th>
+							<th scope="col">Price</th>
 						</tr>
-					</tbody>
-				);
-			});
+					</thead>
+					{restaurantMeal.map((meal) => {
+						return (
+							<tbody key={meal.id}>
+								<tr>
+									<th scope="row">{(i += 1)}</th>
+									<td>{meal.meal_name}</td>
+									<td>{meal.meal_price}</td>
+								</tr>
+							</tbody>
+						);
+					})}
+				</table>
+			);
 		} else {
 			return (
 				<div className="alert alert-info my-4">
@@ -82,18 +99,7 @@ class RestaurantShow extends React.Component {
 			<div className="container my-24">
 				<div className="row">
 					<div className="col-sm-6">{this.renderRestaurantInfo()}</div>
-					<div className="col-sm-6">
-						<table class="table table-striped overflow-auto">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Meal Name</th>
-									<th scope="col">Price</th>
-								</tr>
-							</thead>
-							{this.renderRestaurantMeals()}
-						</table>
-					</div>
+					<div className="col-sm-6">{this.renderRestaurantMeals()}</div>
 				</div>
 				<div className="row">
 					<div className="col-sm-12 bg-info my-6 p-4">
