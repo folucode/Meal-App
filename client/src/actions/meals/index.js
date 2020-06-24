@@ -1,3 +1,4 @@
+import history from '../../history';
 import {
 	FETCH_MEAL,
 	FETCH_MEALS,
@@ -8,14 +9,27 @@ import {
 
 import db from '../../apis/db';
 
-export const createMeal = (formValues) => async (dispatch, getState) => {
+export const createMeal = (restaurantId, formValues) => async (
+	dispatch,
+	getState,
+) => {
+	const { userId } = getState().auth;
+
 	const response = await db.post('/meals', {
-		formValues,
+		...formValues,
+		userId,
+		restaurantId,
 	});
+
+	dispatch({ type: CREATE_MEAL, payload: response.data });
+
+	history.push(`/restaurant/show/${restaurantId}`);
 };
 
 export const fetchMeals = () => async (dispatch) => {
-	const respose = await db.get('/meals');
+	const response = await db.get('/meals');
+
+	dispatch({ type: FETCH_MEALS, payload: response.data });
 };
 
 export const fetchMeal = (id) => async (dispatch) => {

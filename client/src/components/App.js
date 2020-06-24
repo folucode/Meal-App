@@ -19,7 +19,7 @@ const App = () => {
 					<div className="col s12">
 						<Route path="/" exact component={RestaurantList} />
 						<Route path="/restaurants/new" exact component={RestaurantCreate} />
-						<Route path="/restaurants/show" component={RestaurantShow} />
+						<Route path="/restaurant/show/:id" component={RestaurantShow} />
 						<Route path="/restaurants/delete" component={RestaurantDelete} />
 						<Route path="/restaurants/edit/:id" component={RestaurantEdit} />
 					</div>

@@ -1,7 +1,5 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { TextInput, Button, Icon } from 'react-materialize';
-import 'materialize-css';
 
 class RestaurantForm extends React.Component {
 	renderError = ({ error, touched }) => {
@@ -33,7 +31,7 @@ class RestaurantForm extends React.Component {
 							<Field
 								name="name"
 								component={this.renderInput}
-								label="Enter Resturant Name"
+								label="Enter Restaurant Name"
 							/>
 							<Field
 								name="email"
@@ -82,6 +80,6 @@ const validate = (formValues) => {
 };
 
 export default reduxForm({
-	form: 'streamForm',
+	form: 'restaurantForm',
 	validate,
 })(RestaurantForm);

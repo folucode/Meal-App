@@ -5,7 +5,7 @@
       "email": "tosinmoronfolu@gmail.com",
       "address": "Address",
       "description": "Regulatory and Institutional Challenges",
-      "userId": "117377395047354879859",
+      "userId": "",
       "id": 1
     },
     {
@@ -35,7 +35,37 @@
       "address": "Address",
       "description": "Institutional Challenges of Corporate Governance In Nigeria Post Banking Consolidation",
       "id": 5
+    },
+    {
+      "name": "Tosin Moro's",
+      "email": "tosinmoronfolu@gmail.com",
+      "address": "Address",
+      "description": "Tax Fiscal Highlights",
+      "id": 6
+    },
+    {
+      "name": "Tosin Moronfolu",
+      "email": "tosinmoronfolu@gmail.com",
+      "address": "Address",
+      "description": "Regulatory and Institutional Challenges",
+      "userId": "",
+      "id": 7
     }
   ],
-  "meals": []
+  "meals": [
+    {
+      "meal_name": "Yam and Egg",
+      "meal_price": "350",
+      "userId": "117377395047354879859",
+      "restaurantId": "1",
+      "id": 2
+    },
+    {
+      "meal_name": "Eba and Egusi",
+      "meal_price": "1000",
+      "userId": "117377395047354879859",
+      "restaurantId": "1",
+      "id": 3
+    }
+  ]
 }

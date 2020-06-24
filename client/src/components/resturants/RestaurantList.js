@@ -17,7 +17,9 @@ class RestaurantList extends React.Component {
 						<div className="card-body">
 							<h5 className="card-title">{restaurant.name}</h5>
 							<p className="card-text">{restaurant.description}</p>
-							<Link to={'/'} className="btn btn-primary m-2">
+							<Link
+								to={`/restaurant/show/${restaurant.id}`}
+								className="btn btn-primary m-2">
 								visit Restaurant
 							</Link>
 							{admin ? (
@@ -36,7 +38,15 @@ class RestaurantList extends React.Component {
 
 	render() {
 		return this.props.restaurants.length < 1 ? (
-			<div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32 container mx-auto my-32"></div>
+			// <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32 container mx-auto my-32"></div>
+			<div className="text-center my-32 text-success">
+				<div
+					className="spinner-border"
+					style={{ width: '5rem', height: '5rem' }}
+					role="status">
+					<span className="sr-only">Loading...</span>
+				</div>
+			</div>
 		) : (
 			<div className="container-fluid">
 				<div className="row m-4">

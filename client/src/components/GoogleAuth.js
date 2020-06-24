@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions/auth';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import GoogleIcon from '../svgs/google.svg';
 class GoogleAuth extends React.Component {
 	componentDidMount() {

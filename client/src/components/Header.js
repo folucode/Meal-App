@@ -9,7 +9,9 @@ const Header = () => {
 	return (
 		<nav className="navbar rounded-b navbar-expand-lg navbar-dark bg-dark">
 			<div className="navbar-brand">
-				<Link to="/">Book A Meal</Link>
+				<Link to="/" style={{ textDecoration: 'none' }}>
+					Book A Meal
+				</Link>
 			</div>
 			<button className="navbar-toggler">
 				<span

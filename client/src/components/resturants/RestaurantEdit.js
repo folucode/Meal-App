@@ -3,7 +3,6 @@ import { fetchRestaurant, editRestaurant } from '../../actions/restaurants';
 import { connect } from 'react-redux';
 import RestaurantForm from './RestaurantForm';
 import _ from 'lodash';
-import { Col, Preloader } from 'react-materialize';
 
 class RestaurantEdit extends React.Component {
 	componentDidMount() {
@@ -17,9 +16,11 @@ class RestaurantEdit extends React.Component {
 	render() {
 		if (!this.props.restaurant) {
 			return (
-				<Col s={4} offset="s5">
-					<Preloader active color="blue" flashing={false} size="small" />
-				</Col>
+				<div class="text-center">
+					<div class="spinner-border" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+				</div>
 			);
 		}
 		return (
