@@ -87,6 +87,20 @@
       "userId": "117377395047354879859",
       "restaurantId": "4",
       "id": 6
+    },
+    {
+      "meal_name": "Eba and Egusi",
+      "meal_price": "1000",
+      "userId": "117377395047354879859",
+      "restaurantId": "7",
+      "id": 7
+    },
+    {
+      "meal_name": "Yam and Egg",
+      "meal_price": "350",
+      "userId": "117377395047354879859",
+      "restaurantId": "7",
+      "id": 8
     }
   ]
 }

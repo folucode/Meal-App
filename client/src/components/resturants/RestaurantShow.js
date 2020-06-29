@@ -94,6 +94,47 @@ class RestaurantShow extends React.Component {
 		dispatch(this.props.reset('mealCreate'));
 	};
 
+	renderAddMeal() {
+		if (this.props.restaurant) {
+			if (this.props.restaurant.userId === this.props.currentUserId) {
+				return (
+					<div className="row">
+						<div className="col-sm-12 bg-info my-6 p-4">
+							<h1 className="text-center font-weight-bold">Add a new meal</h1>
+						</div>
+						<div className="col-sm-6 offset-sm-3">
+							<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+								<Field
+									name="meal_name"
+									component={this.renderInput}
+									label="Enter Meal Name"
+								/>
+								<Field
+									name="meal_price"
+									component={this.renderInput}
+									label="Enter Meal Price"
+								/>
+								<button type="submit" className="btn btn-dark">
+									Submit
+								</button>
+							</form>
+						</div>
+					</div>
+				);
+			} else {
+				return null;
+			}
+		} else {
+			return (
+				<div class="text-center">
+					<div class="spinner-border" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+				</div>
+			);
+		}
+	}
+
 	render() {
 		return (
 			<div className="container my-24">
@@ -101,28 +142,7 @@ class RestaurantShow extends React.Component {
 					<div className="col-sm-6">{this.renderRestaurantInfo()}</div>
 					<div className="col-sm-6">{this.renderRestaurantMeals()}</div>
 				</div>
-				<div className="row">
-					<div className="col-sm-12 bg-info my-6 p-4">
-						<h1 className="text-center font-weight-bold">Add a new meal</h1>
-					</div>
-					<div className="col-sm-6 offset-sm-3">
-						<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-							<Field
-								name="meal_name"
-								component={this.renderInput}
-								label="Enter Meal Name"
-							/>
-							<Field
-								name="meal_price"
-								component={this.renderInput}
-								label="Enter Meal Price"
-							/>
-							<button type="submit" className="btn btn-dark">
-								Submit
-							</button>
-						</form>
-					</div>
-				</div>
+				{this.renderAddMeal()}
 			</div>
 		);
 	}
