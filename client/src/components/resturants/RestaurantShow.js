@@ -95,7 +95,7 @@ class RestaurantShow extends React.Component {
 	};
 
 	renderAddMeal() {
-		if (this.props.restaurant) {
+		if (this.props.restaurant && this.props.currentUserId) {
 			if (this.props.restaurant.userId === this.props.currentUserId) {
 				return (
 					<div className="row">
