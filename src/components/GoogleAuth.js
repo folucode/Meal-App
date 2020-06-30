@@ -47,7 +47,6 @@ class GoogleAuth extends React.Component {
 						<img
 							src={GoogleIcon}
 							alt="Google Icon SVG"
-							className="img-fluid"
 							height="20"
 							width="20"
 						/>
@@ -65,7 +64,6 @@ class GoogleAuth extends React.Component {
 						<img
 							src={GoogleIcon}
 							alt="Google Icon SVG"
-							className="img-fluid"
 							height="20"
 							width="20"
 						/>
