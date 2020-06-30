@@ -99,7 +99,7 @@ class RestaurantShow extends React.Component {
 			if (this.props.restaurant.userId === this.props.currentUserId) {
 				return (
 					<div className="row">
-						<div className="col-sm-12 bg-info my-6 p-4">
+						<div className="col-sm-12 bg-info my-4 p-4">
 							<h1 className="text-center font-weight-bold">Add a new meal</h1>
 						</div>
 						<div className="col-sm-6 offset-sm-3">
@@ -137,7 +137,7 @@ class RestaurantShow extends React.Component {
 
 	render() {
 		return (
-			<div className="container my-24">
+			<div className="container my-4">
 				<div className="row">
 					<div className="col-sm-6">{this.renderRestaurantInfo()}</div>
 					<div className="col-sm-6">{this.renderRestaurantMeals()}</div>
