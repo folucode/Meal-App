@@ -40,14 +40,16 @@ class GoogleAuth extends React.Component {
 			return null;
 		} else if (this.props.isSignedIn) {
 			return (
-				<button className="cursor-pointer bg-red-400 p-2 rounded mx-1" onClick={this.onSignOutClick}>
+				<button className="btn btn-info" onClick={this.onSignOutClick}>
 					SignOut
 					<span>
 						{' '}
 						<img
 							src={GoogleIcon}
 							alt="Google Icon SVG"
-							className="fill-current w-5 h-5 inline"
+							className="img-fluid"
+							height="20"
+							width="20"
 						/>
 					</span>
 				</button>
@@ -55,7 +57,7 @@ class GoogleAuth extends React.Component {
 		} else {
 			return (
 				<button
-					className="cursor-pointer bg-red-400 p-2 rounded mx-1"
+					className="btn btn-info btn-sm"
 					onClick={this.onSignInClick}>
 					Sign In with Google
 					<span>
@@ -63,7 +65,9 @@ class GoogleAuth extends React.Component {
 						<img
 							src={GoogleIcon}
 							alt="Google Icon SVG"
-							className="fill-current w-5 h-5 inline"
+							className="img-fluid"
+							height="20"
+							width="20"
 						/>
 					</span>
 				</button>
