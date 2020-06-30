@@ -101,6 +101,13 @@
       "userId": "117377395047354879859",
       "restaurantId": "7",
       "id": 8
+    },
+    {
+      "meal_name": "Pasta and Chicken",
+      "meal_price": "1500",
+      "userId": "117377395047354879859",
+      "restaurantId": "7",
+      "id": 9
     }
   ]
 }
