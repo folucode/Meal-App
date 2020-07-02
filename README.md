@@ -15,4 +15,4 @@ If you want to use this application in your local machine, the steps to setting 
 3. after doing step 2 above, run `npm start`.
 4. That's all you need to do and you can view the app in your browser.
 
-Or you can view it with this link: [meal-app](https://5efe268dfb522001d7b476e9--restauranty.netlify.app/)
+Or you can view it with this link: [meal-app](http://quiet-plateau-00327.herokuapp.com/)
