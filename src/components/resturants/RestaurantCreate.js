@@ -2,7 +2,6 @@ import React from 'react';
 import { createRestaurant, fetchRestaurants } from '../../actions/restaurants';
 import { connect } from 'react-redux';
 import RestaurantForm from './RestaurantForm';
-import { Col, Preloader } from 'react-materialize';
 
 class RestaurantCreate extends React.Component {
 	componentDidMount() {
@@ -53,9 +52,14 @@ class RestaurantCreate extends React.Component {
 				{restaurants && currentUser ? (
 					this.checkUser()
 				) : (
-					<Col s={4} offset="s5">
-						<Preloader active color="blue" flashing={true} size="small" />
-					</Col>
+					<div className="text-center my-32 text-success">
+						<div
+							className="spinner-border"
+							style={{ width: '5rem', height: '5rem' }}
+							role="status">
+							<span className="sr-only">Loading...</span>
+						</div>
+					</div>
 				)}
 			</div>
 		);
